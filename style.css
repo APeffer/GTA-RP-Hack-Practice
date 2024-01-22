@@ -1,0 +1,126 @@
+:root {
+    --blue: rgb(0, 250, 185);
+    --text: rgba(0,0,0, 0.7);
+    --darkerblue: rgb(10, 115, 122);
+    --backgroundblue: rgb(24,24,32);
+
+    --red: rgb(254,105,106);
+    --textred: rgb(150,45,41);
+
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #060606;
+    color: white;
+}
+
+h1 {
+    display: block;
+}
+
+.characters {
+    display: block;
+    white-space: nowrap;
+    background-color: #030303;
+}
+
+.item {
+    display: inline-flex;
+    font-size: 24px;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20px;
+    height: 35px;
+    box-shadow: 0px 4px 0px rgb(141, 141, 141);
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    color: var(--text);
+}
+
+a {
+    font-size: 28px;
+}
+
+.container {
+    margin-top: 10px;
+    display: flex;
+    width: 880px;
+    justify-content: space-between;
+}
+
+.timer-container {
+    margin-top: 0px;
+    background-color: var(--backgroundblue);
+    border-radius: 5px;
+}
+
+#timer {
+    height: 10px;
+    width: 90%;
+    margin: 7px auto 7px auto;
+    background-color: var(--darkerblue);
+    z-index: 1;
+}
+
+#time {
+    height: 10px;
+    background-color: var(--blue);
+    z-index: 2;
+    transition: width 0.8s
+}
+
+#texttimer {
+    padding-top: 3px;
+    
+    color: var(--textblue);
+}
+
+.modal-container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 300px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: rgb(101, 109, 153);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: 30%;
+    width: 60%;
+}
+
+#retryBtn {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    border-style: solid;
+    border-color: #030303;
+    padding: 10px 25px 10px 25px;
+    background-color: #666;
+}
+
+#retryBtn:hover {
+    cursor: pointer;
+}
