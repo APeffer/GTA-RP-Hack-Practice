@@ -67,18 +67,26 @@ const updateInterval = 1000;
 
 const widthIncrement = 100 / (timerDuration * 1000 / updateInterval);
 
+let timeRemaining = 5;
+
+const timeIncrement = 1;
+
 //get element
 const time = document.getElementById("time");
 
 // initial width
 let currentWidth = 100;
 
+const texttimer = document.getElementById("texttimer");
 
 // update the timer at the intervals described
 
 const timerInterval = setInterval(() => {
     currentWidth -= widthIncrement;
     time.style.width = currentWidth + '%';
+
+    timeRemaining -= timeIncrement;
+    texttimer.textContent = timeRemaining + " seconds";
 
     if (currentWidth <= 0) {
         clearInterval(timerInterval);
