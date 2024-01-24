@@ -82,6 +82,7 @@ a:hover {
     height: 10px;
     background-color: var(--blue);
     z-index: 2;
+    width: 100%;
     transition: width 0.8s
 }
 
@@ -101,12 +102,12 @@ a:hover {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,); /* Fallback color */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
 
 .modal-content {
-    background-color: rgb(101, 109, 153);
+    background-color: rgba(101, 109, 153, 0.8);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;

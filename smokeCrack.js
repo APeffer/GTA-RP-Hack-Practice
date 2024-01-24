@@ -26,6 +26,7 @@ console.log(selectedChars);
 const myModal = document.getElementById("myModal");
 const modalMessage = document.getElementById('modalMessage');
 const modalRetryBtn = document.getElementById('retryBtn');
+const modalContent = document.getElementById('modal-content');
 
 
 // set duration to 5 seconds
@@ -41,6 +42,7 @@ const timeIncrement = 1;
 
 //get element
 const time = document.getElementById("time");
+const timer = document.getElementById("timer");
 
 // initial width
 let currentWidth = 100;
@@ -59,12 +61,22 @@ document.body.addEventListener("keydown", (event)=> {
 
             if(iterator >= 14) {
                 modalMessage.textContent = "CONGRATULATIONS! YOU'RE IN!"
+                modalContent.style.backgroundColor = "rgba(50, 200, 50, 0.8)"
                 myModal.style.display = "block";
                 clearInterval(timerInterval);
             } 
 
             // update the timer at the intervals described
             if (iterator === 0){
+
+                //initial start
+                timeRemaining -= timeIncrement;
+                texttimer.textContent = timeRemaining + " seconds";
+                currentWidth -= widthIncrement;
+                time.style.width = currentWidth + '%';
+
+                //start interval
+                    
                     timerInterval = setInterval(() => {
                     currentWidth -= widthIncrement;
                     time.style.width = currentWidth + '%';
@@ -72,10 +84,13 @@ document.body.addEventListener("keydown", (event)=> {
                     timeRemaining -= timeIncrement;
                     texttimer.textContent = timeRemaining + " seconds";
 
-                    if (currentWidth <= 0) {
-                        clearInterval(timerInterval);
+                    if (timeRemaining <= -1) {
                         modalMessage.textContent = "YOU FAILED! (reason: end of timer)"
                         myModal.style.display = "block";
+                        modalContent.style.backgroundColor = "rgba(200, 50, 50, 0.8)"
+                        time.style.backgroundColor = "red";
+                        timer.style.backgroundColor = "red";
+                        clearInterval(timerInterval);
                     }                
                 }, updateInterval);
             }
@@ -87,7 +102,12 @@ document.body.addEventListener("keydown", (event)=> {
             return;
         } else{
             modalMessage.textContent = "YOU FAILED! (reason: wrong keypress)"
+            modalContent.style.backgroundColor = "rgba(200, 50, 50, 0.8)"
             myModal.style.display = "block";
+            iterator++;
+            let mySpan = document.getElementById(`span${iterator}`);
+            mySpan.style.backgroundColor = "red";
+            mySpan.style.boxShadow = "0px 4px 0px rgb(150, 0, 0)"
             clearInterval(timerInterval);
         }
     }
